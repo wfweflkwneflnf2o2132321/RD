@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="Имя"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        android:nextFocusDown="@id/etSurname"/>
 
     <EditText
         android:id="@+id/etSurname"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:hint="Фамилия"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteY="48dp"
+        android:nextFocusDown="@id/etNumber"/>
 
     <EditText
         android:id="@+id/etNumber"

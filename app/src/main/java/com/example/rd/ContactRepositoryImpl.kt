@@ -5,9 +5,11 @@ import io.realm.kotlin.deleteFromRealm
 import java.util.*
 
 class ContactRepositoryImpl(
+    //Обязательное добавление Realm, с помощью которого мы будем делать запросы
     private val realm: Realm
 ) : ContactRepository {
     override fun addContact(name: String, surname: String, number: String) {
+        // создаем объект с помощью REALM
         realm.executeTransaction {
             it.createObject(Contact::class.java, UUID.randomUUID().toString()).apply {
                 this.name = name

@@ -3,7 +3,10 @@ package com.example.rd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
@@ -31,7 +34,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             Log.d("Main", "DefaultLifecycleObserver - onResume")
         }
     }
-
+    private val etSearch: EditText by lazy { findViewById(R.id.etSearch) }
 
     private val viewModel: MainViewModel by viewModel()
 
@@ -61,7 +64,13 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 //            startActivity(Intent(this, EditContactActivity::class.java))
 //        }
 
-//        binding.etSearch.doAfterTextChanged { text ->  viewModel.contactsShown(text.toString())  }
+        // АНДРОИД KTX КОТОРЫЙ ДОБАВЛЯЕТ ПОДСКАЗКИ СЛОВА КОТОРОЕ МЫ СКОРЕЕ ВСЕГО ХОТИМ НАПИСАТЬ
+        binding.etSearch.doAfterTextChanged { text ->  viewModel.contactsShown(text.toString())  }
+
+
+
+
+
     }
 
 
@@ -70,6 +79,9 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
                 lifecycle.removeObserver(defaultLifecycleObserver)
 
             }
+
+
+
 
 
     private fun editContact (contactToEditIndex: Int) {

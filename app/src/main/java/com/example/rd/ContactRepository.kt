@@ -7,4 +7,5 @@ interface ContactRepository {
     fun deleteContact(contact: Contact)
     fun getContact(): List<Contact>
 
+
 }
